@@ -1,9 +1,28 @@
 #!/bin/sh
 
-wget -O /scripts/docker/shylocks_crontab_list.sh https://cdn.jsdelivr.net/gh/shylocks/Loon@main/docker/crontab_list.sh
 
+#@shylocks仓库脚本
+function initShylocks() {
+    git clone https://github.com/shylocks/Loon.git /shylocks
+    npm install
+}
+
+ if [ ! -d "/shylocks/" ]; then
+    echo "未检查到shylocks仓库脚本，初始化下载相关脚本"
+    initShylocks
+else
+    echo "更新shylocks脚本相关文件"
+    git -C /shylocks reset --hard
+    git -C /shylocks pull --rebase
+    npm install
+fi
+
+# 复制京东相关文件
+cp -f /shylocks/jd*.js /scripts/
+
+# 合并两份cron
 echo -e "" >>/scripts/docker/merged_list_file.sh
-cat  /scripts/docker/shylocks_crontab_list.sh >>/scripts/docker/merged_list_file.sh
+cat  /shylocks/docker/crontab_list.sh >>/scripts/docker/merged_list_file.sh
 
 
 
