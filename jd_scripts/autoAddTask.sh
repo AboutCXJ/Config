@@ -4,7 +4,7 @@
 #@shylocks仓库脚本
 function initShylocks() {
     git clone https://github.com/shylocks/Loon.git /shylocks
-    npm install
+    #npm install
 }
 
  if [ ! -d "/shylocks/" ]; then
@@ -14,7 +14,7 @@ else
     echo "更新shylocks脚本相关文件"
     git -C /shylocks reset --hard
     git -C /shylocks pull --rebase
-    npm install
+    #npm install
 fi
 
 # 复制京东相关文件
