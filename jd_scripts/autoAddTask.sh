@@ -4,10 +4,12 @@
 if [ ! -d "/shylocks/" ]; then
     echo "未检查到shylocks仓库脚本，初始化下载相关脚本"
     git clone https://github.com/shylocks/Loon.git /shylocks
+    npm install --loglevel error
 else
     echo "更新shylocks脚本相关文件"
     git -C /shylocks reset --hard
     git -C /shylocks pull --rebase
+    npm install --loglevel error
 fi
 
 # 复制京东相关文件
