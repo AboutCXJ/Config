@@ -18,5 +18,5 @@ cat  /shylocks/docker/crontab_list.sh >>/scripts/docker/merged_list_file.sh
 
 
 
-
-
+# 删除惊喜工厂任务
+sed -ie '/jd_dreamFactory.js/d' /scripts/docker/merged_list_file.sh
