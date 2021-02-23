@@ -3,5 +3,4 @@ rm -rf /scriptsCopy/*
 cp -rf /scripts/.  /scriptsCopy
 
 # 宠汪汪兑换
-cp /joy_reward.js /scripts
-echo "0 0-16/8 * * * node /scripts/joy_reward.js >> /scripts/logs/joy_reward.log 2>&1" >> /scripts/docker/merged_list_file.sh
+echo "0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1" >> /scripts/docker/merged_list_file.sh
