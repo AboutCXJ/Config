@@ -32,4 +32,4 @@ fi
 
 random_min=$((${RANDOM} % 60))
 
-echo ""${random_min}" "${run_hour}" * * * update.sh >> /scripts/logs/default_task.log 2>&1" >> ${mergedListFile}
+echo ""${random_min}" "${run_hour}" * * * . /scripts/docker/update.sh >> /scripts/logs/default_task.log 2>&1" >> ${mergedListFile}
