@@ -11,7 +11,9 @@ cp -rf /scripts/.  /scriptsCopy
 
 
 # 别名
-alias update.sh='docker_entrypoint.sh'
+echo "alias update.sh='docker_entrypoint.sh'" >  /etc/profile.d/alias.sh
+source /etc/profile.d/alias.sh
+
 
 # 更新
 current_h=$(date +%-H)
