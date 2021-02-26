@@ -7,3 +7,25 @@ cp -rf /scripts/.  /scriptsCopy
 
 # 宠汪汪兑换
 # echo "0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1" >> $mergedListFile
+
+
+
+# 别名
+alias update.sh='docker_entrypoint.sh'
+
+# 更新
+current_h=$(date +%-H)
+
+run_hour=`expr ${current_h} + 1`
+
+if [ ${run_hour} -gt 24 ]
+then
+    run_hour=`expr ${run_hour} - 24`
+elif [ ${run_hour} -eq 24 ]
+then
+    run_hour=0
+fi
+
+random_min=$((${RANDOM} % 60))
+
+echo ""${random_min}" "${run_hour}" * * * update.sh >> /scripts/logs/default_task.log 2>&1" >> ${mergedListFile}
