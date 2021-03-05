@@ -8,6 +8,11 @@ cp -rf /scripts/.  /scriptsCopy
 # 宠汪汪兑换
 # echo "0 0-16/8 * * * node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1" >> $mergedListFile
 
+#添加助力码导出
+sh -x /scripts/sh/add_prefix.sh
+
+#添加助力码收集任务
+echo "30 * * * * sh -x /scripts/sh/auto_help.sh handleLog >> /scripts/logs/auto_help.log 2>&1" >> ${mergedListFile}
 
 
 # 别名
